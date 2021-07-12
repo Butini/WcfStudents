@@ -127,10 +127,10 @@ namespace WcfStudents.Presentation.WinSite.StudentServiceReferent {
     public interface IStudentService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/Add", ReplyAction="http://tempuri.org/IStudentService/AddResponse")]
-        WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Add(string name, string surname, System.DateTime birthday);
+        WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Add(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/Add", ReplyAction="http://tempuri.org/IStudentService/AddResponse")]
-        System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> AddAsync(string name, string surname, System.DateTime birthday);
+        System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> AddAsync(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/DeleteById", ReplyAction="http://tempuri.org/IStudentService/DeleteByIdResponse")]
         WcfStudents.Presentation.WinSite.StudentServiceReferent.Student DeleteById(int id);
@@ -139,10 +139,10 @@ namespace WcfStudents.Presentation.WinSite.StudentServiceReferent {
         System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> DeleteByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/Update", ReplyAction="http://tempuri.org/IStudentService/UpdateResponse")]
-        WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Update(int id, string name, string surname, System.DateTime birthday);
+        WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Update(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/Update", ReplyAction="http://tempuri.org/IStudentService/UpdateResponse")]
-        System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> UpdateAsync(int id, string name, string surname, System.DateTime birthday);
+        System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> UpdateAsync(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStudentService/GetById", ReplyAction="http://tempuri.org/IStudentService/GetByIdResponse")]
         WcfStudents.Presentation.WinSite.StudentServiceReferent.Student GetById(int id);
@@ -184,12 +184,12 @@ namespace WcfStudents.Presentation.WinSite.StudentServiceReferent {
                 base(binding, remoteAddress) {
         }
         
-        public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Add(string name, string surname, System.DateTime birthday) {
-            return base.Channel.Add(name, surname, birthday);
+        public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Add(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student) {
+            return base.Channel.Add(student);
         }
         
-        public System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> AddAsync(string name, string surname, System.DateTime birthday) {
-            return base.Channel.AddAsync(name, surname, birthday);
+        public System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> AddAsync(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student) {
+            return base.Channel.AddAsync(student);
         }
         
         public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student DeleteById(int id) {
@@ -200,12 +200,12 @@ namespace WcfStudents.Presentation.WinSite.StudentServiceReferent {
             return base.Channel.DeleteByIdAsync(id);
         }
         
-        public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Update(int id, string name, string surname, System.DateTime birthday) {
-            return base.Channel.Update(id, name, surname, birthday);
+        public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student Update(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student) {
+            return base.Channel.Update(student);
         }
         
-        public System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> UpdateAsync(int id, string name, string surname, System.DateTime birthday) {
-            return base.Channel.UpdateAsync(id, name, surname, birthday);
+        public System.Threading.Tasks.Task<WcfStudents.Presentation.WinSite.StudentServiceReferent.Student> UpdateAsync(WcfStudents.Presentation.WinSite.StudentServiceReferent.Student student) {
+            return base.Channel.UpdateAsync(student);
         }
         
         public WcfStudents.Presentation.WinSite.StudentServiceReferent.Student GetById(int id) {

@@ -27,8 +27,6 @@ namespace WcfStudents.Common.Models
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Surname = surname ?? throw new ArgumentNullException(nameof(surname));
             Birthday = birthday;
-
-            Age = GetAgeByBirthday(birthday);
         }
 
         public Student(int studentID, string name, string surname, int age, DateTime birthday)
@@ -59,16 +57,6 @@ namespace WcfStudents.Common.Models
             hashCode = hashCode * -1521134295 + Age.GetHashCode();
             hashCode = hashCode * -1521134295 + Birthday.GetHashCode();
             return hashCode;
-        }
-
-        private int GetAgeByBirthday(DateTime birthday)
-        {
-            int age = 0;
-            age = DateTime.Today.Year - birthday.Year;
-
-            if (DateTime.Today.DayOfYear < birthday.DayOfYear) age--;
-
-            return age;
         }
     }
 }
