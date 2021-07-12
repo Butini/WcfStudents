@@ -22,13 +22,15 @@ namespace WcfStudents.Presentation.WinSite
             {
                 DataGridView aux = studentTable;
 
-                string name = nameStudentBox.Text;
-                string surname = surnameStudentBox.Text;
-                DateTime birthday = birthdayTimePicker.Value;
+                StudentServiceReferent.Student student = new StudentServiceReferent.Student();
+
+                student.Name = nameStudentBox.Text;
+                student.Surname = surnameStudentBox.Text;
+                student.Birthday = birthdayTimePicker.Value;
 
                 try
                 {
-                    var student = client.Add(name, surname, birthday);
+                    client.Add(student);
                     LoadStudents();
                     ResetBoxText();
                 }
@@ -135,11 +137,14 @@ namespace WcfStudents.Presentation.WinSite
         {
             using (StudentServiceReferent.StudentServiceClient client = new StudentServiceReferent.StudentServiceClient())
             {
-                string name = nameStudentBox.Text;
-                string surname = surnameStudentBox.Text;
-                DateTime birthday = birthdayTimePicker.Value;
+                StudentServiceReferent.Student student = new StudentServiceReferent.Student();
 
-                client.Update(idUpdate, name, surname, birthday);
+                student.StudentID = idUpdate;
+                student.Name = nameStudentBox.Text;
+                student.Surname = surnameStudentBox.Text;
+                student.Birthday = birthdayTimePicker.Value;
+
+                client.Update(student);
                 btnSave.Enabled = true;
                 btnCancelUpdate.Enabled = true;
                 btnUpdate.Enabled = false;

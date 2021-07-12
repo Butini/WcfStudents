@@ -4,23 +4,23 @@ using System.Runtime.InteropServices;
 
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
-// asociada con un ensamblado.
-[assembly: AssemblyTitle("WcfStudents.Business.Logic")]
+// asociada a un ensamblado.
+[assembly: AssemblyTitle("WcfStudents.Business.Service")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WcfStudents.Business.Logic")]
+[assembly: AssemblyProduct("WcfStudents.Business.Service")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
-// para los componentes COM.  Si necesita obtener acceso a un tipo de este ensamblado desde 
+// a los componentes COM. Si necesita obtener acceso a un tipo en este ensamblado desde 
 // COM, establezca el atributo ComVisible en true en este tipo.
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("ea018aa2-9bc2-4c69-b219-f7cc71140523")]
+[assembly: Guid("835c7366-3c1b-4455-bc71-bb4cae15eb08")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
@@ -29,7 +29,7 @@ using System.Runtime.InteropServices;
 //      Número de compilación
 //      Revisión
 //
-// Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
+// Puede especificar todos los valores o usar los valores predeterminados (número de compilación y de revisión) 
 // utilizando el carácter "*", como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

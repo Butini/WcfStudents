@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
 using WcfStudents.Common.Models;
 using WcfStudents.Infrastructure.Repositories.Contracts;
@@ -11,22 +10,21 @@ using WcfStudents.Infrastructure.Repositories.Implementation.Factory;
 
 namespace WcfStudents.Business.Logic
 {
-    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
-    // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
-    public class StudentService : IStudentService
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código y en el archivo de configuración a la vez.
+    public class StudentLogic : IStudentLogic
     {
         private IDataAccessFactory Factory;
         private IDataAccessProduct Service;
 
-        public StudentService()
+        public StudentLogic()
         {
             Factory = new SqlFactory();
             Service = Factory.NewData();
         }
 
-        public Student Add(string name, string surname, DateTime birthday)
+        public Student Add(Student student)
         {
-            Student student = new Student(name, surname, birthday);
+            student.Age = GetAgeByBirthday(student.Birthday);
             return Service.Add(student);
         }
 
@@ -45,11 +43,20 @@ namespace WcfStudents.Business.Logic
             return Service.GetById(id);
         }
 
-        public Student Update(int id, string name, string surname, DateTime birthday)
+        public Student Update(Student student)
         {
-            Student student = new Student(name, surname, birthday);
-            student.StudentID = id;
+            student.Age = GetAgeByBirthday(student.Birthday);
             return Service.Update(student);
+        }
+
+        private int GetAgeByBirthday(DateTime birthday)
+        {
+            int age = 0;
+            age = DateTime.Today.Year - birthday.Year;
+
+            if (DateTime.Today.DayOfYear < birthday.DayOfYear) age--;
+
+            return age;
         }
     }
 }
